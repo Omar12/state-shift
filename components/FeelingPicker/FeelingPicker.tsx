@@ -30,7 +30,7 @@ export default function FeelingPicker({ onContinue }: Props) {
   const canContinue = selected !== null && intensity !== null;
 
   return (
-    <div className="flex flex-col h-full px-5 py-8 gap-6">
+    <div className="flex flex-col min-h-full px-5 py-8 gap-6">
       <div>
         <h1 className="text-2xl font-semibold text-stone-800 tracking-tight">
           How are you feeling right now?
@@ -45,7 +45,7 @@ export default function FeelingPicker({ onContinue }: Props) {
         className="w-full px-4 py-2.5 rounded-xl border border-stone-200 bg-stone-50 text-sm text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-300"
       />
 
-      <div className="grid grid-cols-2 gap-3 flex-1 overflow-y-auto">
+      <div className="grid grid-cols-2 gap-3">
         {filtered.map((f) => (
           <button
             key={f.value}

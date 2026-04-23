@@ -7,7 +7,7 @@ type Props = {
 
 export default function AnotherPrompt({ onYes, onDone }: Props) {
   return (
-    <div className="flex flex-col h-full px-5 py-8 gap-6 justify-center">
+    <div className="flex flex-col flex-1 px-5 py-8 gap-6 justify-center">
       <div className="flex flex-col gap-3">
         <h2 className="text-2xl font-semibold text-stone-800 tracking-tight">
           Want another suggestion?

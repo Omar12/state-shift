@@ -8,7 +8,7 @@ type Props = {
 
 export default function CompletionState({ allUsed, nothingHelped, onHome }: Props) {
   return (
-    <div className="flex flex-col h-full px-5 py-8 gap-6 justify-center">
+    <div className="flex flex-col flex-1 px-5 py-8 gap-6 justify-center">
       <div className="flex flex-col gap-4">
         <div className="w-14 h-14 rounded-2xl bg-stone-100 flex items-center justify-center">
           <svg className="w-7 h-7 text-stone-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -26,7 +26,7 @@ export default function OnboardingScreen({ onComplete }: Props) {
   const current = STEPS[step];
 
   return (
-    <div className="flex flex-col h-full justify-between px-6 py-10">
+    <div className="flex flex-col flex-1 justify-between px-6 py-10">
       <div className="flex gap-1.5 justify-center mt-2">
         {STEPS.map((_, i) => (
           <span

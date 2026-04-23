@@ -22,7 +22,7 @@ export default function InterventionCard({
   const lines = intervention.instruction.split("\n");
 
   return (
-    <div className="flex flex-col h-full px-5 py-8 gap-6">
+    <div className="flex flex-col flex-1 px-5 py-8 gap-6">
       {intensity === 5 && <SupportBanner />}
 
       <div className="flex-1 flex flex-col gap-5 justify-center">
