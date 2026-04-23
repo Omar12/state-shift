@@ -49,7 +49,7 @@ export default function FeelingPicker({ onContinue }: Props) {
         {filtered.map((f) => (
           <button
             key={f.value}
-            onClick={() => setSelected(f.value)}
+            onClick={() => { setSelected(f.value); setIntensity(null); }}
             className={`flex flex-col items-center gap-2 py-5 rounded-2xl text-sm font-medium capitalize transition-all active:scale-95 ${
               selected === f.value
                 ? "bg-stone-800 text-white"

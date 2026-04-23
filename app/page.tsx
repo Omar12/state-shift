@@ -107,7 +107,13 @@ export default function Home() {
   }, [session, feeling, personalization]);
 
   const handleDone = useCallback(() => {
-    if (session) setSession(completeSession(session));
+    if (session) {
+      const allDidntHelp =
+        session.steps.length > 0 &&
+        session.steps.every((s) => s.feedback === "didnt_help");
+      setNothingHelped(allDidntHelp);
+      setSession(completeSession(session));
+    }
     setScreen("completion");
   }, [session]);
 

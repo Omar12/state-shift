@@ -1,6 +1,5 @@
-// components/Timer/Timer.tsx
 "use client";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 
 type Props = {
   durationSeconds: number;
@@ -11,8 +10,11 @@ export default function Timer({ durationSeconds, onComplete }: Props) {
   const [remaining, setRemaining] = useState(durationSeconds);
   const [running, setRunning] = useState(false);
   const [done, setDone] = useState(false);
+  const completedRef = useRef(false);
 
   const handleComplete = useCallback(() => {
+    if (completedRef.current) return;
+    completedRef.current = true;
     setDone(true);
     setRunning(false);
     onComplete?.();
@@ -20,10 +22,6 @@ export default function Timer({ durationSeconds, onComplete }: Props) {
 
   useEffect(() => {
     if (!running) return;
-    if (remaining <= 0) {
-      handleComplete();
-      return;
-    }
     const id = setInterval(() => {
       setRemaining((r) => {
         if (r <= 1) {
@@ -35,7 +33,7 @@ export default function Timer({ durationSeconds, onComplete }: Props) {
       });
     }, 1000);
     return () => clearInterval(id);
-  }, [running, remaining, handleComplete]);
+  }, [running, handleComplete]);
 
   const pct = ((durationSeconds - remaining) / durationSeconds) * 100;
 
