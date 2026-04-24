@@ -15,16 +15,17 @@ const OPTIONS: { value: FeedbackValue; label: string; emoji: string }[] = [
 export default function FeedbackButtons({ value, onChange }: Props) {
   return (
     <div className="flex flex-col gap-2">
-      <p className="text-sm font-medium text-stone-500 text-center">How did that feel?</p>
-      <div className="flex gap-2">
+      <p id="feedback-label" className="text-sm font-medium text-stone-600 text-center">How did that feel?</p>
+      <div role="group" aria-labelledby="feedback-label" className="flex gap-2">
         {OPTIONS.map((opt) => (
           <button
             key={opt.value}
             onClick={() => onChange(opt.value)}
-            className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all active:scale-95 ${
+            aria-pressed={value === opt.value}
+            className={`flex-1 py-4 rounded-xl text-sm font-medium transition-all active:scale-95 ${
               value === opt.value
                 ? "bg-stone-800 text-white"
-                : "bg-stone-50 text-stone-600 hover:bg-stone-100 border border-stone-200"
+                : "bg-white text-stone-600 hover:bg-stone-50 border border-stone-200"
             }`}
           >
             {opt.label}

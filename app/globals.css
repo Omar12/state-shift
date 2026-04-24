@@ -1,7 +1,32 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: var(--font-lora), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;           /* light mode only, per design brief */
+  --color-bg: #faf8f5;           /* warm cream — never pure white */
+  --color-surface: #ffffff;      /* lifted surfaces: buttons, inputs */
+  --color-timer-track: #e7e5e4;  /* SVG ring background */
+  --color-timer-fill: #78716c;   /* SVG ring progress */
+}
+
 html, body {
   height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-timer-fill);
+  outline-offset: 3px;
+  border-radius: 6px;
 }
 
 * {
@@ -15,4 +40,10 @@ html, body {
 
 .animate-fade-in {
   animation: fade-in 0.2s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in {
+    animation: none;
+  }
 }

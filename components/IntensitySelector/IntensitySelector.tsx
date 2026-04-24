@@ -18,14 +18,15 @@ const LEVELS: { value: Intensity; label: string }[] = [
 export default function IntensitySelector({ value, onChange }: Props) {
   return (
     <div className="flex flex-col gap-2">
-      <p className="text-sm font-medium text-stone-500">How intense?</p>
-      <div className="flex gap-2">
+      <p id="intensity-label" className="text-sm font-medium text-stone-600">How intense?</p>
+      <div role="group" aria-labelledby="intensity-label" className="flex gap-2">
         {LEVELS.map((lvl) => (
           <button
             key={lvl.value}
             onClick={() => onChange(lvl.value)}
             aria-label={`Intensity ${lvl.value}: ${lvl.label}`}
-            className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all active:scale-95 ${
+            aria-pressed={value === lvl.value}
+            className={`flex-1 py-4 rounded-xl text-sm font-medium transition-all active:scale-95 ${
               value === lvl.value
                 ? "bg-stone-800 text-white"
                 : "bg-stone-100 text-stone-600 hover:bg-stone-200"
@@ -36,7 +37,7 @@ export default function IntensitySelector({ value, onChange }: Props) {
         ))}
       </div>
       {value && (
-        <p className="text-xs text-stone-400 text-center">
+        <p className="text-xs text-stone-600 text-center">
           {LEVELS.find((l) => l.value === value)?.label}
         </p>
       )}

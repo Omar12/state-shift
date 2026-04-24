@@ -39,12 +39,12 @@ export default function OnboardingScreen({ onComplete }: Props) {
       </div>
 
       <div className="flex flex-col gap-6 mt-12">
-        <h1 className="text-3xl font-semibold text-stone-800 tracking-tight">
+        <h1 className="font-serif text-3xl font-semibold text-stone-800 tracking-tight leading-snug">
           {current.title}
         </h1>
-        <p className="text-lg text-stone-500 leading-relaxed">{current.body}</p>
+        <p className="text-base text-stone-600 leading-relaxed">{current.body}</p>
         {current.disclaimer && (
-          <p className="text-sm text-stone-400 leading-relaxed border-l-2 border-stone-200 pl-3">
+          <p className="text-sm text-stone-600 leading-relaxed border-l-2 border-stone-200 pl-3">
             {current.disclaimer}
           </p>
         )}

@@ -7,6 +7,7 @@ export default function SupportBanner() {
         href="https://findahelpline.com"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Support resources (opens in new tab)"
         className="mt-1 inline-block text-amber-700 underline underline-offset-2 hover:text-amber-900 transition-colors"
       >
         Support resources →

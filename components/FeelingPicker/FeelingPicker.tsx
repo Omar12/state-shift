@@ -30,60 +30,69 @@ export default function FeelingPicker({ onContinue }: Props) {
   const canContinue = selected !== null && intensity !== null;
 
   return (
-    <div className="flex flex-col min-h-full px-5 py-8 gap-6">
-      <div>
-        <h1 className="text-2xl font-semibold text-stone-800 tracking-tight">
+    <div className="flex flex-col flex-1 min-h-0">
+      {/* Fixed top — heading + filter */}
+      <div className="shrink-0 px-5 pt-8 pb-4 flex flex-col gap-4">
+        <h1 className="font-serif text-2xl font-semibold text-stone-800 tracking-tight leading-snug">
           How are you feeling right now?
         </h1>
+        <label className="sr-only" htmlFor="feeling-filter">Filter feelings</label>
+        <input
+          id="feeling-filter"
+          type="search"
+          placeholder="Filter feelings..."
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          className="w-full px-4 py-2.5 rounded-xl border border-stone-200 bg-white text-sm text-stone-700 placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-stone-300"
+        />
       </div>
 
-      <input
-        type="search"
-        placeholder="Filter feelings..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="w-full px-4 py-2.5 rounded-xl border border-stone-200 bg-stone-50 text-sm text-stone-700 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-stone-300"
-      />
-
-      <div className="grid grid-cols-2 gap-3">
-        {filtered.map((f) => (
-          <button
-            key={f.value}
-            onClick={() => { setSelected(f.value); setIntensity(null); }}
-            className={`flex flex-col items-center gap-2 py-5 rounded-2xl text-sm font-medium capitalize transition-all active:scale-95 ${
-              selected === f.value
-                ? "bg-stone-800 text-white"
-                : "bg-stone-50 text-stone-600 hover:bg-stone-100 border border-stone-200"
-            }`}
-          >
-            <span className="text-2xl">{f.emoji}</span>
-            {f.value}
-          </button>
-        ))}
-        {filtered.length === 0 && (
-          <p className="col-span-2 text-center text-stone-400 text-sm py-8">
-            No feelings matching &quot;{query}&quot;
-          </p>
-        )}
+      {/* Scrollable middle — grid + intensity */}
+      <div className="flex-1 min-h-0 overflow-y-auto px-5">
+        <div className="flex flex-col gap-4 pb-4">
+          <div className="grid grid-cols-2 gap-3">
+            {filtered.map((f) => (
+              <button
+                key={f.value}
+                onClick={() => { setSelected(f.value); setIntensity(null); }}
+                className={`flex flex-col items-center gap-2 py-5 rounded-2xl text-sm font-medium capitalize transition-all active:scale-95 ${
+                  selected === f.value
+                    ? "bg-stone-800 text-white"
+                    : "bg-white text-stone-600 hover:bg-stone-50 border border-stone-200"
+                }`}
+              >
+                <span className="text-2xl">{f.emoji}</span>
+                {f.value}
+              </button>
+            ))}
+            {filtered.length === 0 && (
+              <p className="col-span-2 text-center text-stone-600 text-sm py-8">
+                No feelings matching &quot;{query}&quot;
+              </p>
+            )}
+          </div>
+          {selected && (
+            <IntensitySelector value={intensity} onChange={setIntensity} />
+          )}
+        </div>
       </div>
 
-      {selected && (
-        <IntensitySelector value={intensity} onChange={setIntensity} />
-      )}
-
-      <button
-        disabled={!canContinue}
-        onClick={() => {
-          if (selected && intensity) onContinue(selected, intensity);
-        }}
-        className={`w-full py-4 rounded-2xl text-base font-medium transition-all ${
-          canContinue
-            ? "bg-stone-800 text-white hover:bg-stone-700 active:scale-[0.98]"
-            : "bg-stone-100 text-stone-400 cursor-not-allowed"
-        }`}
-      >
-        Continue
-      </button>
+      {/* Pinned bottom — Continue */}
+      <div className="shrink-0 px-5 pt-3 pb-8">
+        <button
+          disabled={!canContinue}
+          onClick={() => {
+            if (selected && intensity) onContinue(selected, intensity);
+          }}
+          className={`w-full py-4 rounded-2xl text-base font-medium transition-all ${
+            canContinue
+              ? "bg-stone-800 text-white hover:bg-stone-700 active:scale-[0.98]"
+              : "bg-stone-100 text-stone-400 cursor-not-allowed"
+          }`}
+        >
+          Continue
+        </button>
+      </div>
     </div>
   );
 }

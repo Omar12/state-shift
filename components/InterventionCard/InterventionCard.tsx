@@ -27,16 +27,16 @@ export default function InterventionCard({
 
       <div className="flex-1 flex flex-col gap-5 justify-center">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-medium uppercase tracking-widest text-stone-400">
+          <span className="text-xs font-medium uppercase tracking-widest text-stone-600">
             {intervention.type}
           </span>
         </div>
-        <h2 className="text-3xl font-semibold text-stone-800 tracking-tight leading-tight">
+        <h2 className="font-serif text-3xl font-semibold text-stone-800 tracking-tight leading-snug">
           {intervention.title}
         </h2>
         <div className="flex flex-col gap-2">
           {lines.map((line, i) => (
-            <p key={i} className="text-lg text-stone-500 leading-relaxed">
+            <p key={i} className="text-base text-stone-600 leading-relaxed">
               {line}
             </p>
           ))}

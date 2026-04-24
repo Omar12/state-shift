@@ -130,26 +130,26 @@ export default function Home() {
 
   if (!mounted) {
     return (
-      <main className="min-h-dvh max-w-md mx-auto flex items-center justify-center">
-        <div className="w-6 h-6 rounded-full border-2 border-stone-300 border-t-stone-600 animate-spin" />
+      <main className="h-dvh max-w-md mx-auto flex items-center justify-center">
+        <div className="w-6 h-6 rounded-full border-2 border-stone-300 border-t-stone-600 animate-spin motion-reduce:animate-none" />
       </main>
     );
   }
 
   return (
-    <main className="min-h-dvh max-w-md mx-auto flex flex-col">
+    <main className="h-dvh max-w-md mx-auto flex flex-col">
       {screen === "onboarding" && (
-        <div key="onboarding" className="flex flex-col flex-1 animate-fade-in">
+        <div key="onboarding" className="flex flex-col flex-1 min-h-0 animate-fade-in">
           <OnboardingScreen onComplete={handleOnboardingComplete} />
         </div>
       )}
       {screen === "feeling-picker" && (
-        <div key="feeling-picker" className="flex flex-col flex-1 animate-fade-in">
+        <div key="feeling-picker" className="flex flex-col flex-1 min-h-0 animate-fade-in">
           <FeelingPicker onContinue={handleFeelingSelected} />
         </div>
       )}
       {screen === "intervention" && currentIntervention && intensity && (
-        <div key={currentIntervention.id} className="flex flex-col flex-1 animate-fade-in">
+        <div key={currentIntervention.id} className="flex flex-col flex-1 min-h-0 animate-fade-in">
           <InterventionCard
             intervention={currentIntervention}
             intensity={intensity}
@@ -160,12 +160,12 @@ export default function Home() {
         </div>
       )}
       {screen === "another-prompt" && (
-        <div key="another-prompt" className="flex flex-col flex-1 animate-fade-in">
+        <div key="another-prompt" className="flex flex-col flex-1 min-h-0 animate-fade-in">
           <AnotherPrompt onYes={handleAnotherYes} onDone={handleDone} />
         </div>
       )}
       {screen === "completion" && (
-        <div key="completion" className="flex flex-col flex-1 animate-fade-in">
+        <div key="completion" className="flex flex-col flex-1 min-h-0 animate-fade-in">
           <CompletionState
             allUsed={allUsed}
             nothingHelped={nothingHelped}
