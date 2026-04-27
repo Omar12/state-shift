@@ -33,17 +33,69 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* ─── Easing ─────────────────────────────── */
+:root {
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ─── Keyframes ──────────────────────────── */
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* Slide up from below — for contextual reveals (IntensitySelector) */
+@keyframes slide-up-fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scale + fade — for meaningful completion moments */
+@keyframes pop-in {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Checkmark path draw */
+@keyframes draw-check {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ─── Utilities ──────────────────────────── */
 .animate-fade-in {
   animation: fade-in 0.2s ease-out both;
 }
 
+.animate-slide-up {
+  animation: slide-up-fade 0.28s var(--ease-out-quint) both;
+}
+
+.animate-pop-in {
+  animation: pop-in 0.3s var(--ease-out-expo) both;
+}
+
+.animate-draw-check {
+  stroke-dasharray: 26;
+  stroke-dashoffset: 26;
+  animation: draw-check 0.35s var(--ease-out-expo) forwards;
+  animation-delay: 0.18s;
+}
+
+/* Delay helpers */
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+
+/* ─── Reduced motion ─────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-in {
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-pop-in {
+    animation: none;
+  }
+  .animate-draw-check {
+    stroke-dashoffset: 0;
     animation: none;
   }
 }

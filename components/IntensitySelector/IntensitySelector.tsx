@@ -17,7 +17,7 @@ const LEVELS: { value: Intensity; label: string }[] = [
 
 export default function IntensitySelector({ value, onChange }: Props) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 animate-slide-up">
       <p id="intensity-label" className="text-sm font-medium text-stone-600">How intense?</p>
       <div role="group" aria-labelledby="intensity-label" className="flex gap-2">
         {LEVELS.map((lvl) => (

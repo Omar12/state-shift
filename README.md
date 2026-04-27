@@ -1,8 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# State Shift
+
+State Shift is a warm, grounded app designed to help adults navigate challenging emotional moments with calm confidence. It provides personalized interventions, feeling trackers, and support tools to foster mental well-being, emphasizing simplicity and typography-led design.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (version 18 or higher)
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd state-shift
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+### Running the Development Server
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -16,18 +44,42 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Building for Production
+
+To build the app for production:
+
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun run build
+```
+
+### Starting the Production Server
+
+After building, start the production server:
+
+```bash
+npm start
+# or
+yarn start
+# or
+pnpm start
+# or
+bun start
+```
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+This project is built with [Next.js](https://nextjs.org), a React framework for production.
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 

@@ -40,12 +40,12 @@ export default function Timer({ durationSeconds, onComplete }: Props) {
   if (done) {
     return (
       <div className="flex flex-col items-center gap-2 py-4">
-        <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center">
+        <div className="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center animate-pop-in">
           <svg aria-hidden="true" className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            <path className="animate-draw-check" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <p className="text-sm text-stone-600">Done</p>
+        <p className="text-sm text-stone-600 animate-fade-in animation-delay-300">Done</p>
       </div>
     );
   }

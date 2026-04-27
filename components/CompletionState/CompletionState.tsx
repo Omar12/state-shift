@@ -10,7 +10,7 @@ export default function CompletionState({ allUsed, nothingHelped, onHome }: Prop
   return (
     <div className="flex flex-col flex-1 px-5 py-8 gap-6 justify-center">
       <div className="flex flex-col gap-4">
-        <div className="w-14 h-14 rounded-2xl bg-stone-100 flex items-center justify-center">
+        <div className="w-14 h-14 rounded-2xl bg-stone-100 flex items-center justify-center animate-pop-in animation-delay-200">
           <svg aria-hidden="true" className="w-7 h-7 text-stone-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
