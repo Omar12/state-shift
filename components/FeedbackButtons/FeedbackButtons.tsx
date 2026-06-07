@@ -6,10 +6,10 @@ type Props = {
   onChange: (v: FeedbackValue) => void;
 };
 
-const OPTIONS: { value: FeedbackValue; label: string; emoji: string }[] = [
-  { value: "worked", label: "Worked", emoji: "✓" },
-  { value: "a_little", label: "A little", emoji: "~" },
-  { value: "didnt_help", label: "Didn't help", emoji: "✗" },
+const OPTIONS: { value: FeedbackValue; label: string }[] = [
+  { value: "worked", label: "Helped" },
+  { value: "a_little", label: "A little" },
+  { value: "didnt_help", label: "Didn't help" },
 ];
 
 export default function FeedbackButtons({ value, onChange }: Props) {

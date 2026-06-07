@@ -9,11 +9,11 @@ export default function AnotherPrompt({ onYes, onDone }: Props) {
   return (
     <div className="flex flex-col flex-1 px-5 py-8 gap-6 justify-center">
       <div className="flex flex-col gap-3">
-        <h2 className="font-serif text-2xl font-semibold text-stone-800 tracking-tight leading-snug">
+        <h2 className="font-serif text-2xl font-semibold text-stone-800 tracking-tight leading-snug text-balance">
           Want another suggestion?
         </h2>
         <p className="text-stone-600 text-base leading-relaxed">
-          You can try something else or call it here.
+          Try something else, or that&apos;s enough for now.
         </p>
       </div>
       <div className="flex flex-col gap-3 mt-4">

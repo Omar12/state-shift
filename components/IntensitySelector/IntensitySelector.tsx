@@ -9,9 +9,9 @@ type Props = {
 
 const LEVELS: { value: Intensity; label: string }[] = [
   { value: 1, label: "Mild" },
-  { value: 2, label: "Low" },
-  { value: 3, label: "Medium" },
-  { value: 4, label: "High" },
+  { value: 2, label: "Moderate" },
+  { value: 3, label: "High" },
+  { value: 4, label: "Very high" },
   { value: 5, label: "Intense" },
 ];
 
@@ -24,23 +24,18 @@ export default function IntensitySelector({ value, onChange }: Props) {
           <button
             key={lvl.value}
             onClick={() => onChange(lvl.value)}
-            aria-label={`Intensity ${lvl.value}: ${lvl.label}`}
             aria-pressed={value === lvl.value}
-            className={`flex-1 py-4 rounded-xl text-sm font-medium transition-all active:scale-95 ${
+            className={`flex-1 flex flex-col items-center gap-0.5 py-3 rounded-xl transition-all active:scale-95 ${
               value === lvl.value
                 ? "bg-stone-800 text-white"
                 : "bg-stone-100 text-stone-600 hover:bg-stone-200"
             }`}
           >
-            {lvl.value}
+            <span className="text-sm font-semibold leading-none">{lvl.value}</span>
+            <span className="text-[10px] font-medium leading-none opacity-70">{lvl.label}</span>
           </button>
         ))}
       </div>
-      {value && (
-        <p className="text-xs text-stone-600 text-center">
-          {LEVELS.find((l) => l.value === value)?.label}
-        </p>
-      )}
     </div>
   );
 }

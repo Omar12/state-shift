@@ -117,6 +117,17 @@ export default function Home() {
     setScreen("completion");
   }, [session]);
 
+  const handleBack = useCallback(() => {
+    setFeeling(null);
+    setIntensity(null);
+    setSession(null);
+    setCurrentIntervention(null);
+    setFeedback(null);
+    setAllUsed(false);
+    setNothingHelped(false);
+    setScreen("feeling-picker");
+  }, []);
+
   const handleHome = useCallback(() => {
     setFeeling(null);
     setIntensity(null);
@@ -156,6 +167,7 @@ export default function Home() {
             feedback={feedback}
             onFeedback={setFeedback}
             onSubmitFeedback={handleSubmitFeedback}
+            onBack={handleBack}
           />
         </div>
       )}

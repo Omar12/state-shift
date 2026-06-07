@@ -10,6 +10,7 @@ type Props = {
   feedback: FeedbackValue | null;
   onFeedback: (v: FeedbackValue) => void;
   onSubmitFeedback: () => void;
+  onBack: () => void;
 };
 
 export default function InterventionCard({
@@ -18,11 +19,24 @@ export default function InterventionCard({
   feedback,
   onFeedback,
   onSubmitFeedback,
+  onBack,
 }: Props) {
-  const lines = intervention.instruction.split("\n");
+  const lines = intervention.instruction.split("\n").filter((l) => l.trim() !== "");
 
   return (
     <div className="flex flex-col flex-1 px-5 py-8 gap-6">
+      <div className="shrink-0">
+        <button
+          onClick={onBack}
+          aria-label="Back to feeling picker"
+          className="flex items-center gap-1.5 text-sm text-stone-500 hover:text-stone-800 transition-colors -ml-1 px-1 py-1 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-500 focus-visible:ring-offset-2"
+        >
+          <svg aria-hidden="true" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.75}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back
+        </button>
+      </div>
       {intensity === 5 && <SupportBanner />}
 
       <div className="flex-1 flex flex-col gap-5 justify-center">
@@ -31,12 +45,12 @@ export default function InterventionCard({
             {intervention.type}
           </span>
         </div>
-        <h2 className="font-serif text-3xl font-semibold text-stone-800 tracking-tight leading-snug">
+        <h2 className="font-serif text-3xl font-semibold text-stone-800 tracking-tight leading-snug text-balance break-words">
           {intervention.title}
         </h2>
         <div className="flex flex-col gap-2">
           {lines.map((line, i) => (
-            <p key={i} className="text-base text-stone-600 leading-relaxed">
+            <p key={i} className="text-base text-stone-600 leading-relaxed text-pretty break-words">
               {line}
             </p>
           ))}

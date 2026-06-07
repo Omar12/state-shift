@@ -7,7 +7,21 @@
       "Bash(git commit *)",
       "Bash(git init *)",
       "Bash(npm run *)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(node .claude/skills/impeccable/scripts/context.mjs)",
+      "Bash(node /Users/omar/.claude/plugins/cache/impeccable/impeccable/3.5.0/skills/impeccable/scripts/context.mjs)",
+      "Bash(node /Users/omar/.claude/plugins/cache/impeccable/impeccable/3.5.0/skills/impeccable/scripts/critique-storage.mjs slug \"app\")",
+      "Bash(node /Users/omar/.claude/plugins/cache/impeccable/impeccable/3.5.0/skills/impeccable/scripts/detect.mjs --json components/ app/)",
+      "Bash(node -e \"const tw = require\\('/Users/omar/projects/vibe_coding_apps/state-shift/node_modules/tailwindcss/package.json'\\); console.log\\(tw.version\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(xargs cat)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(npx playwright *)",
+      "Bash(open http://localhost:3001)",
+      "Bash(screencapture -x /tmp/ss-onboarding.png)",
+      "Bash(curl -s http://localhost:3001/)"
     ]
   }
 }

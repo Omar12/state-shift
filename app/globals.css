@@ -6,11 +6,31 @@
 }
 
 :root {
-  color-scheme: light;           /* light mode only, per design brief */
-  --color-bg: #faf8f5;           /* warm cream — never pure white */
-  --color-surface: #ffffff;      /* lifted surfaces: buttons, inputs */
-  --color-timer-track: #e7e5e4;  /* SVG ring background */
-  --color-timer-fill: #78716c;   /* SVG ring progress */
+  color-scheme: light;
+
+  /* ── Warm stone palette ─────────────────── */
+  --color-charred-bark:       oklch(19% 0.007 41);   /* dark anchor: CTAs, selected */
+  --color-charred-bark-hover: oklch(28% 0.009 41);
+  --color-ember-stone:        oklch(37% 0.010 52);   /* body text, labels */
+  --color-warm-flint:         oklch(50% 0.012 52);   /* muted: timer fill, focus ring */
+  --color-pebble-dust:        oklch(68% 0.009 52);   /* disabled text */
+  --color-stone-border:       oklch(91% 0.004 55);   /* borders, timer track */
+  --color-still-air:          oklch(96% 0.003 55);   /* inactive choice bg */
+  --color-bg:                 oklch(98% 0.005 80);   /* page bg — warm cream */
+  --color-surface:            oklch(100% 0 0);        /* lifted surfaces */
+
+  /* ── Semantic: completion only ──────────── */
+  --color-settle-green:     oklch(95% 0.050 155);   /* completion bg */
+  --color-settle-green-ink: oklch(58% 0.170 155);   /* completion stroke */
+
+  /* ── Semantic: care signal ──────────────── */
+  --color-care-bg:     oklch(98% 0.020 80);    /* support banner bg */
+  --color-care-border: oklch(90% 0.040 75);    /* support banner border */
+  --color-care-ink:    oklch(46% 0.080 65);    /* support banner link */
+
+  /* ── Aliases (legacy names used by components) */
+  --color-timer-track: var(--color-stone-border);
+  --color-timer-fill:  var(--color-warm-flint);
 }
 
 html, body {
