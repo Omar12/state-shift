@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-07T00:00:00Z",
+  "title": "Design System: State Shift",
+  "extensions": {
+    "colorMeta": {
+      "charred-bark":       { "role": "primary",  "displayName": "Charred Bark",       "canonical": "oklch(20% 0.007 60)",  "tonalRamp": ["#1c1917","#292524","#44403c","#57534e","#78716c","#a8a29e","#d6d3d1","#f5f5f4"] },
+      "charred-bark-hover": { "role": "primary",  "displayName": "Charred Bark Hover", "canonical": "oklch(27% 0.007 60)",  "tonalRamp": ["#1c1917","#292524","#44403c","#57534e","#78716c","#a8a29e","#d6d3d1","#f5f5f4"] },
+      "ember-stone":        { "role": "neutral",  "displayName": "Ember Stone",        "canonical": "oklch(38% 0.007 60)",  "tonalRamp": ["#1c1917","#292524","#44403c","#57534e","#78716c","#a8a29e","#d6d3d1","#f5f5f4"] },
+      "warm-flint":         { "role": "neutral",  "displayName": "Warm Flint",         "canonical": "oklch(50% 0.007 60)",  "tonalRamp": ["#1c1917","#292524","#44403c","#57534e","#78716c","#a8a29e","#d6d3d1","#f5f5f4"] },
+      "pebble-dust":        { "role": "neutral",  "displayName": "Pebble Dust",        "canonical": "oklch(68% 0.006 60)",  "tonalRamp": ["#1c1917","#292524","#44403c","#57534e","#78716c","#a8a29e","#d6d3d1","#f5f5f4"] },
+      "stone-border":       { "role": "neutral",  "displayName": "Stone Border",       "canonical": "oklch(90% 0.004 60)",  "tonalRamp": ["#57534e","#78716c","#a8a29e","#d6d3d1","#e7e5e4","#f5f5f4","#faf8f5","#fefdfb"] },
+      "still-air":          { "role": "neutral",  "displayName": "Still Air",          "canonical": "oklch(96% 0.003 60)",  "tonalRamp": ["#78716c","#a8a29e","#d6d3d1","#e7e5e4","#f5f5f4","#faf8f5","#fefdfb","#ffffff"] },
+      "warm-cream":         { "role": "neutral",  "displayName": "Warm Cream",         "canonical": "oklch(97.5% 0.005 75)", "tonalRamp": ["#57534e","#78716c","#a8a29e","#d6d3d1","#e7e5e4","#f5f5f4","#faf8f5","#fefdfb"] },
+      "lifted-white":       { "role": "neutral",  "displayName": "Lifted White",       "canonical": "oklch(100% 0 0)",      "tonalRamp": ["#78716c","#a8a29e","#d6d3d1","#e7e5e4","#f5f5f4","#faf8f5","#fefdfb","#ffffff"] },
+      "settle-green":       { "role": "tertiary", "displayName": "Settle Green",       "canonical": "oklch(93% 0.06 155)",  "tonalRamp": ["#064e3b","#065f46","#059669","#34d399","#6ee7b7","#a7f3d0","#d1fae5","#ecfdf5"] },
+      "settle-green-ink":   { "role": "tertiary", "displayName": "Settle Green Ink",   "canonical": "oklch(51% 0.17 155)",  "tonalRamp": ["#064e3b","#065f46","#059669","#34d399","#6ee7b7","#a7f3d0","#d1fae5","#ecfdf5"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Intervention titles and onboarding headings. The dominant voice on each screen." },
+      "headline": { "displayName": "Headline", "purpose": "Feeling picker primary heading." },
+      "body":     { "displayName": "Body",     "purpose": "Intervention instructions and onboarding copy. Max line length 65ch." },
+      "label":    { "displayName": "Label",    "purpose": "Form labels, button text, search placeholder." },
+      "caption":  { "displayName": "Caption",  "purpose": "Intervention type badge only. The single uppercase context in the system." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-out-expo",  "value": "cubic-bezier(0.16, 1, 0.3, 1)",  "purpose": "Pop-in completion, draw-check. Most emphatic entrance." },
+      { "name": "ease-out-quint", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Slide-up-fade for contextual reveals (IntensitySelector)." },
+      { "name": "ease-out",       "value": "ease-out",                        "purpose": "Screen fade-in transitions. Simplest entrance." }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Primary CTA Button",
+      "kind": "button",
+      "refersTo": "btn-primary",
+      "description": "Full-width action button pinned to the bottom of each screen. One visible at a time.",
+      "html": "<button class=\"ds-btn-primary\">Continue</button>",
+      "css": ".ds-btn-primary { display: block; width: 100%; padding: 16px 20px; background: #292524; color: #faf8f5; font-family: 'DM Sans', system-ui, sans-serif; font-size: 1rem; font-weight: 500; border: none; border-radius: 1rem; cursor: pointer; transition: background 0.15s ease-out, transform 0.1s ease-out; } .ds-btn-primary:hover { background: #44403c; } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #78716c; outline-offset: 3px; border-radius: 6px; } .ds-btn-primary:disabled { background: #f5f5f4; color: #a8a29e; cursor: not-allowed; transform: none; }"
+    },
+    {
+      "name": "Feeling Tile (unselected)",
+      "kind": "button",
+      "refersTo": "btn-choice",
+      "description": "Grid cell in the feeling picker. 2-column grid, bordered variant.",
+      "html": "<button class=\"ds-feeling-tile\"><span class=\"ds-feeling-tile__emoji\">😰</span><span class=\"ds-feeling-tile__label\">anxious</span></button>",
+      "css": ".ds-feeling-tile { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 8px; background: #ffffff; color: #57534e; border: 1px solid #e7e5e4; border-radius: 1rem; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; text-transform: capitalize; cursor: pointer; transition: background 0.12s ease-out, transform 0.1s ease-out; } .ds-feeling-tile:hover { background: #f5f5f4; } .ds-feeling-tile:active { transform: scale(0.95); } .ds-feeling-tile__emoji { font-size: 1.5rem; line-height: 1; } .ds-feeling-tile__label { font-size: 0.875rem; font-weight: 500; }"
+    },
+    {
+      "name": "Feeling Tile (selected)",
+      "kind": "button",
+      "refersTo": "btn-choice-selected",
+      "description": "Selected state of the feeling tile. Matches primary CTA fill.",
+      "html": "<button class=\"ds-feeling-tile ds-feeling-tile--selected\"><span class=\"ds-feeling-tile__emoji\">😰</span><span class=\"ds-feeling-tile__label\">anxious</span></button>",
+      "css": ".ds-feeling-tile { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 20px 8px; border-radius: 1rem; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; text-transform: capitalize; cursor: pointer; transition: background 0.12s ease-out, transform 0.1s ease-out; border: 1px solid transparent; } .ds-feeling-tile--selected { background: #292524; color: #faf8f5; } .ds-feeling-tile:active { transform: scale(0.95); } .ds-feeling-tile__emoji { font-size: 1.5rem; line-height: 1; } .ds-feeling-tile__label { font-size: 0.875rem; font-weight: 500; }"
+    },
+    {
+      "name": "Choice Button (feedback/intensity)",
+      "kind": "button",
+      "refersTo": "btn-choice-muted",
+      "description": "Row-based discrete selector used for feedback (Worked / A little / Didn't help) and intensity levels. Muted fill variant.",
+      "html": "<div class=\"ds-choice-row\"><button class=\"ds-choice-btn\">Worked</button><button class=\"ds-choice-btn ds-choice-btn--selected\">A little</button><button class=\"ds-choice-btn\">Didn't help</button></div>",
+      "css": ".ds-choice-row { display: flex; gap: 8px; } .ds-choice-btn { flex: 1; padding: 16px 8px; background: #ffffff; color: #57534e; border: 1px solid #e7e5e4; border-radius: 0.75rem; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background 0.12s ease-out, transform 0.1s ease-out; } .ds-choice-btn:hover { background: #f5f5f4; } .ds-choice-btn--selected { background: #292524; color: #faf8f5; border-color: transparent; } .ds-choice-btn:active { transform: scale(0.95); } .ds-choice-btn:focus-visible { outline: 2px solid #78716c; outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "Feeling filter input at the top of the feeling picker.",
+      "html": "<input class=\"ds-input-search\" type=\"search\" placeholder=\"Filter feelings...\" />",
+      "css": ".ds-input-search { display: block; width: 100%; padding: 10px 16px; background: #ffffff; color: #57534e; border: 1px solid #e7e5e4; border-radius: 0.75rem; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; } .ds-input-search::placeholder { color: #a8a29e; } .ds-input-search:focus-visible { outline: 2px solid #78716c; outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Timer (start state)",
+      "kind": "custom",
+      "description": "Start button for the breathing/grounding timer. Pill shape, muted fill.",
+      "html": "<button class=\"ds-timer-start\"><svg class=\"ds-timer-start__icon\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z\"/></svg>Start timer · 20s</button>",
+      "css": ".ds-timer-start { display: inline-flex; align-items: center; gap: 8px; padding: 12px 16px; background: #f5f5f4; color: #57534e; border: none; border-radius: 9999px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; cursor: pointer; transition: background 0.12s ease-out; } .ds-timer-start:hover { background: #e7e5e4; } .ds-timer-start__icon { width: 16px; height: 16px; flex-shrink: 0; }"
+    },
+    {
+      "name": "Progress Dots",
+      "kind": "custom",
+      "description": "Onboarding step indicator. Active pill widens; inactive pills are small.",
+      "html": "<div class=\"ds-progress-dots\" role=\"presentation\"><span class=\"ds-progress-dot ds-progress-dot--active\"></span><span class=\"ds-progress-dot\"></span></div>",
+      "css": ".ds-progress-dots { display: flex; gap: 6px; justify-content: center; align-items: center; } .ds-progress-dot { display: block; height: 6px; border-radius: 9999px; background: #e7e5e4; width: 6px; transition: width 0.15s ease-out, background 0.15s ease-out; } .ds-progress-dot--active { width: 24px; background: #78716c; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Coach",
+    "overview": "State Shift does not try to make you feel better with words. It hands you one concrete thing to do, waits calmly, and steps back. The design follows the same principle: nothing performs. Type carries the weight; spacing communicates calm; surfaces sit quietly until touched.\n\nThe aesthetic is warm editorial — closer to a quality independent magazine than a wellness product. The background is never pure white: it carries a trace of warmth that makes reading feel less clinical. The type stack is deliberate: Lora for the moments that need presence (titles, CTAs), DM Sans for everything that needs to step back (body, labels). The whole system works at the pace of breath, not notification.\n\nThis system explicitly rejects: pastel wellness gradients, dark mode with glowing accents, rounded bubbly playfulness, clinical or medical UI, and the full AI slop palette — cyan, purple-to-blue gradients, glassmorphism.",
+    "keyCharacteristics": [
+      "Typography-first: Lora headings carry authority; DM Sans body disappears into readability",
+      "One primary action at a time, always full-width, always at the bottom",
+      "Tonal elevation over shadows: white surfaces lift naturally against the cream field",
+      "Warm stone neutrals throughout; emerald appears only at the single completion moment",
+      "Motion is functional, not decorative: entrance fades, contextual slides, one celebrate-worthy pop"
+    ],
+    "rules": [
+      { "name": "The Charred Bark Rule",       "body": "Charred Bark appears on at most one CTA and one set of selected states per screen. It is the only value that approaches true dark. Do not introduce a second dark color or a competing accent.", "section": "colors" },
+      { "name": "The No-White-Background Rule", "body": "The page background is #faf8f5, not #ffffff. Lifted White (#ffffff) is a surface color reserved for interactive components. Never use it as a page background.", "section": "colors" },
+      { "name": "The Serif Gate Rule",          "body": "Lora is used only for content headings (h1, h2) and never for button text, labels, or body copy. DM Sans handles all UI chrome.", "section": "typography" },
+      { "name": "The Uppercase Scarcity Rule",  "body": "Uppercase appears in exactly one context: the intervention type caption. Do not introduce uppercase in buttons, nav, labels, or headings.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule",     "body": "No surface casts a shadow at rest. Use tonal contrast (Lifted White on Warm Cream) if separation is needed.", "section": "elevation" },
+      { "name": "The One-Layer Rule",           "body": "There is one level of surface lift: Warm Cream (ground) and Lifted White (surface). Do not nest Lifted White on Lifted White.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Warm Cream (#faf8f5) as the page background. Never pure white for the root surface.",
+      "Do keep one full-width primary CTA pinned to the bottom of each screen.",
+      "Do use Lora exclusively for h1/h2 content headings. DM Sans for all UI chrome.",
+      "Do use the uppercase caption style only for the intervention type label.",
+      "Do communicate selection state using the Charred Bark fill.",
+      "Do use expo easing (cubic-bezier(0.16, 1, 0.3, 1)) for all entrance animations.",
+      "Do respect prefers-reduced-motion: all entrance animations must no-op.",
+      "Do keep focus rings: 2px solid #78716c, 3px offset, 6px radius."
+    ],
+    "donts": [
+      "Don't use pastel gradient wellness aesthetics (Calm, Headspace palette).",
+      "Don't use dark mode or dark surfaces with glowing or neon accents.",
+      "Don't use rounded-bubbly playfulness: no bouncing, no elastic easing.",
+      "Don't use clinical or medical UI patterns.",
+      "Don't use the AI slop palette: no cyan, no purple-to-blue gradients, no glassmorphism.",
+      "Don't use box-shadows for depth or card lift.",
+      "Don't introduce a second dark color or competing accent alongside Charred Bark.",
+      "Don't nest Lifted White surfaces on Lifted White.",
+      "Don't use uppercase for anything other than the intervention type caption.",
+      "Don't use border-left greater than 1px as a colored accent stripe."
+    ]
+  }
+}
